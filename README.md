@@ -24,6 +24,8 @@ Test: "It should not count integers as words."
 Code: wordCounter("hi there 77 19");
 Expected Output: 2
 
+
+
 Describe: numberOfOccurencesInText();
 
 Test: "It should return 0 occurences of a word for an empty string."
@@ -58,6 +60,13 @@ Expected Output: 4
 Test: "It should return a word match regardless of case."
 Code:
 const text = "red RED Red green Green GREEN";
+const word = "Red";
+numberOfOccurrencesInText(word, text);
+Expected Output: 3
+
+Test: "It should return a word match regardless of punctuation."
+Code:
+const text = "Red! Red. I like red, green, and yellow.";
 const word = "Red";
 numberOfOccurrencesInText(word, text);
 Expected Output: 3
