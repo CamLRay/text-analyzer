@@ -43,9 +43,18 @@ $(document).ready(function(){
 });
 
 function boldPassage(word, text) {
-  if (word === text) {
-    return "<p><b>" + text + "</b></p>";
-  } else
-  return "<p>" + text + "</p>";
+  let htmlString = "<p>";
+  let textArray = text.split(" ");
+  textArray.forEach(function(element, index) {
+    if (word === element) {
+      htmlString = htmlString.concat("<b>" + element + "</b>");
+    } else {
+      htmlString = htmlString.concat(element);
+    }
+    if (index !== (textArray.length - 1 )) {
+    htmlString = htmlString.concat(" ");
+    }
+  });
+  return htmlString + "</p>";
 }
 
