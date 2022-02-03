@@ -34,11 +34,23 @@ function numberOfOccurrencesInText(word, text) {
 
 function mostCommonWords(text) {
   const wordArray = text.split(" ")
-   let repeatWords = wordArray.filter(function(word, index){
+  let wordCount = [];
+  let wordCountTwo = [];
+  let repeatWords = wordArray.filter(function(word, index){
     return wordArray.indexOf(word) !== index;
    });
-    
-  return repeatWords;
+   repeatWords.forEach(function (element){
+    wordCount.push(numberOfOccurrencesInText(element,text) + " " + element);
+   });
+   wordCount.forEach(function(string){
+    if (!wordCountTwo.includes(string)) {
+      wordCountTwo.push(string);
+    }
+   });
+    let sortedWords = wordCountTwo.sort().reverse();
+    let displayWords = []
+    displayWords.push(sortedWords[0].split(" ").reverse().join(": "),sortedWords[1].split(" ").reverse().join(": "),sortedWords[2].split(" ").reverse().join(": "));
+   return displayWords;
 }
 
 // UI Logic

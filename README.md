@@ -110,8 +110,20 @@ const text = "hello there hans"
 mostCommonWords(text);
 Expected Output: ["hello", "there", "hans"]
 
-test: "It should produce an array of all repeated words"
+Test: "It should produce an array of all repeated words"
 code
 const text = "hello there hans is there anything I can do"
 mostCommonWords(text);
 Expected Output: ["there"]
+
+Test: "It should produce an array of all repeated words with a count"
+code:
+const text ="hello there hans hello hello there"
+mostCommonWords(text);
+Expected Output: ["hello 3" "there 2"]
+
+Test: "It should sort the array based on instances of word occurance greatest to least."
+code:
+const text = "hello there there hans hello hello there there there hans cat cat cat"
+mostCommonWords(text);
+Expected Output: ["there 5", "cat 3", "hello 3"]
