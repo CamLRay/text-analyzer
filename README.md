@@ -100,3 +100,18 @@ const word = "hello";
 const text = "hello there";
 boldPassage(word, text);
 Expected Output: "<p><b>hello</b> there</p>"
+
+
+Describe: mostCommonWords()
+
+Test: "It should produce an array of all the words in the text"
+code:
+const text = "hello there hans"
+mostCommonWords(text);
+Expected Output: ["hello", "there", "hans"]
+
+test: "It should produce an array of all repeated words"
+code
+const text = "hello there hans is there anything I can do"
+mostCommonWords(text);
+Expected Output: ["there"]

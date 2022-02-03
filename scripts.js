@@ -32,20 +32,16 @@ function numberOfOccurrencesInText(word, text) {
   return wordCount;
 }
 
-// UI Logic
+function mostCommonWords(text) {
+  const wordArray = text.split(" ")
+   let repeatWords = wordArray.filter(function(word, index){
+    return wordArray.indexOf(word) !== index;
+   });
+    
+  return repeatWords;
+}
 
-$(document).ready(function(){
-  $("form#word-counter").submit(function(event){
-    event.preventDefault();
-    const passage = $("#text-passage").val();
-    const word = $("#word").val();
-    const wordCount = wordCounter(passage);
-    const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
-    $("#total-count").html(wordCount);
-    $("#selected-count").html(occurrencesOfWord);
-    $("#bolded-passage").html(boldPassage(word, passage));
-  });
-});
+// UI Logic
 
 function boldPassage(word, text) {
   if (noInputtedWord(word, text)) {
@@ -65,4 +61,18 @@ function boldPassage(word, text) {
   });
   return htmlString + "</p>";
 }
+
+$(document).ready(function(){
+  $("form#word-counter").submit(function(event){
+    event.preventDefault();
+    const passage = $("#text-passage").val();
+    const word = $("#word").val();
+    const wordCount = wordCounter(passage);
+    const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
+    $("#total-count").html(wordCount);
+    $("#selected-count").html(occurrencesOfWord);
+    $("#bolded-passage").html(boldPassage(word, passage));
+  });
+});
+
 
